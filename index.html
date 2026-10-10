@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pac-Man Mobile Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Schermata Iniziale -->
+        <div id="menu-screen" class="overlay">
+            <h1>PAC-MAN</h1>
+            <div class="instructions">
+                <p>Usa <b>WASD</b>, <b>Frecce</b> o il <b>D-Pad</b>.</p>
+                <p>Mangia i pallini ed evita i fantasmi!</p>
+            </div>
+            <button id="start-button">GIOCA ORA</button>
+        </div>
+
+        <!-- Schermata Game Over -->
+        <div id="game-over-screen" class="overlay hidden">
+            <h1 id="status-title">GAME OVER</h1>
+            <p>Punteggio Finale: <span id="final-score">0</span></p>
+            <button id="restart-button">RIPROVA</button>
+        </div>
+
+        <!-- Area di Gioco -->
+        <div id="ui-layer">
+            <div class="score-box">SCORE: <span id="score-val">0</span></div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Controlli Touch -->
+        <div id="dpad">
+            <div class="dpad-row">
+                <button class="dpad-btn" id="up-btn">▲</button>
+            </div>
+            <div class="dpad-row">
+                <button class="dpad-btn" id="left-btn">◀</button>
+                <button class="dpad-btn" id="down-btn">▼</button>
+                <button class="dpad-btn" id="right-btn">▶</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
