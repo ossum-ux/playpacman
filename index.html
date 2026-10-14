@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Mini Arcade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Barra superiore (punteggio, menu, pausa) -->
+        <div id="hud" class="hidden">
+            <button id="menu-btn" class="hud-btn" aria-label="Torna al menu">☰</button>
+            <div class="hud-score"><span class="label">SCORE</span> <span id="score-val">0</span></div>
+            <div class="hud-score"><span class="label">BEST</span> <span id="best-val">0</span></div>
+            <button id="pause-btn" class="hud-btn" aria-label="Pausa">❚❚</button>
+        </div>
+
+        <!-- Area di gioco -->
+        <canvas id="gameCanvas" class="hidden"></canvas>
+
+        <!-- Controlli touch -->
+        <div id="controls" class="hidden">
+            <div id="dpad">
+                <div class="dpad-row">
+                    <button class="dpad-btn" id="up-btn" aria-label="Su">▲</button>
+                </div>
+                <div class="dpad-row">
+                    <button class="dpad-btn" id="left-btn" aria-label="Sinistra">◀</button>
+                    <button class="dpad-btn" id="down-btn" aria-label="Giù">▼</button>
+                    <button class="dpad-btn" id="right-btn" aria-label="Destra">▶</button>
+                </div>
+            </div>
+            <button id="action-btn" class="hidden">⤓</button>
+        </div>
+    </div>
+
+    <!-- Schermata iniziale: scelta del gioco -->
+    <div id="menu-screen" class="overlay">
+        <h1 class="logo">MINI ARCADE</h1>
+        <p class="subtitle">Scegli un gioco</p>
+
+        <div class="game-grid">
+            <button class="game-card" data-game="pacman" style="--c:#ffe600">
+                <span class="icon">🟡</span>
+                <span class="name">PAC-MAN</span>
+                <span class="record">Record: <b id="best-pacman">0</b></span>
+            </button>
+            <button class="game-card" data-game="snake" style="--c:#33e05a">
+                <span class="icon">🐍</span>
+                <span class="name">SNAKE</span>
+                <span class="record">Record: <b id="best-snake">0</b></span>
+            </button>
+            <button class="game-card" data-game="tetris" style="--c:#b44cff">
+                <span class="icon">🧱</span>
+                <span class="name">TETRIS</span>
+                <span class="record">Record: <b id="best-tetris">0</b></span>
+            </button>
+            <button class="game-card" data-game="pong" style="--c:#00e5ff">
+                <span class="icon">🏓</span>
+                <span class="name">PONG</span>
+                <span class="record">Record: <b id="best-pong">0</b></span>
+            </button>
+        </div>
+
+        <p class="hint">
+            PC: <b>WASD</b> / <b>Frecce</b> · <b>Spazio</b> = caduta rapida (Tetris) · <b>P</b> = pausa<br>
+            Mobile: D-Pad o swipe sullo schermo (Pong: trascina il dito)
+        </p>
+    </div>
+
+    <!-- Schermata Pausa / Game Over -->
+    <div id="message-screen" class="overlay hidden">
+        <h1 id="msg-title">GAME OVER</h1>
+        <p id="msg-text"></p>
+        <div class="btn-row">
+            <button id="msg-primary" class="btn">RIPROVA</button>
+            <button id="msg-secondary" class="btn btn-secondary">MENU</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
